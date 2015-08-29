@@ -1,3 +1,4 @@
+// Graphical constants
 int WIDTH = 1280;
 int HEIGHT = 720;
 float mustacheAngle = 15;
@@ -30,6 +31,7 @@ int questionHue = 0;
 int XPos = 200;
 
 
+// Initial Setup
 void setup() {
   size(WIDTH, HEIGHT);
   smooth();
@@ -37,6 +39,7 @@ void setup() {
   frameRate(30);
 }
 
+// MAIN function, executes draw commands on each tick
 void draw() {
   drawBackground();
   pushMatrix();
@@ -47,6 +50,7 @@ void draw() {
   popMatrix();
 }
 
+// Draw the background
 void drawBackground() {
   drawSky();
   drawMountains();
@@ -60,6 +64,7 @@ void drawBackground() {
   drawQuestionBlock();
 }
 
+// Draw the luigi character
 void drawLuigi() {
   drawArms();
   drawHead();
@@ -67,6 +72,7 @@ void drawLuigi() {
   drawLegs();
 }
 
+// Draw luigi's head
 void drawHead() {
   //changeNeckLength();
   //pushMatrix();
@@ -117,6 +123,7 @@ void drawHead() {
   ellipse(32, -3, 6, 25);
 }
 
+// Draw luigi's mustache
 void drawMustache() {
   fill(0); //MUSTACHE
   pushMatrix();
@@ -131,6 +138,7 @@ void drawMustache() {
   popMatrix();
 }
 
+// Cycle the angle of the mustache
 void changeMustacheAngle() {
   mustacheAngle += mustacheAngleChange;
   if (mustacheAngle > 25 || mustacheAngle < 15) {
@@ -139,6 +147,7 @@ void changeMustacheAngle() {
   }
 }
 
+// Cycle the length of the neck
 void changeNeckLength() {
   neckLength += neckLengthChange;
   if (neckLength > 20 || neckLength < 10) {
@@ -147,6 +156,7 @@ void changeNeckLength() {
   }
 }
 
+// Draw luigi's body
 void drawBody() {
   translate(0, 55);
   fill(#E5C298);
@@ -162,6 +172,7 @@ void drawBody() {
   ellipse(18, 50, 8, 8);
 }
 
+// Draw luigi's legs
 void drawLegs() {
   translate(0, 90);
   fill(#0815C9);
@@ -194,6 +205,7 @@ void drawLegs() {
   popMatrix();
 }
 
+// Cycle the angle between abdomen and left hip
 void changeLeftHipAngle() {
   leftHipAngle += leftHipAngleChange;
   if (leftHipAngle > 40 || leftHipAngle < 0) {
@@ -202,6 +214,7 @@ void changeLeftHipAngle() {
   }
 }
 
+// Cycle the angle between abdomen and right hip
 void changeRightHipAngle() {
   rightHipAngle += rightHipAngleChange;
   if (rightHipAngle > 40 || rightHipAngle < 0) {
@@ -210,6 +223,7 @@ void changeRightHipAngle() {
   }
 }
 
+// Cycle the left kneww angle
 void changeLeftKneeAngle() {
   leftKneeAngle += leftKneeAngleChange;
   if (leftKneeAngle > 40 || leftKneeAngle < 0) {
@@ -218,6 +232,7 @@ void changeLeftKneeAngle() {
   }
 }
 
+// Cycle the right knee angle
 void changeRightKneeAngle() {
   rightKneeAngle += rightKneeAngleChange;
   if (rightKneeAngle > 40 || rightKneeAngle < 0) {
@@ -226,12 +241,14 @@ void changeRightKneeAngle() {
   }
 }
 
+// Draw luigi's arms
 void drawArms() {
   fill(#45b245);
   drawLeftArm();
   drawRightArm();
 }
 
+// Draw the left arm
 void drawLeftArm() {
   pushMatrix();
   changeLeftShoulderAngle();
@@ -251,6 +268,7 @@ void drawLeftArm() {
   popMatrix();
 }
 
+// Draw the right arm
 void drawRightArm() {
   pushMatrix();
   changeRightShoulderAngle();
@@ -270,6 +288,7 @@ void drawRightArm() {
   popMatrix();
 }
 
+// Change the angle between abdomen and right shoulder
 void changeRightShoulderAngle() {
   rightShoulderAngle += rightShoulderAngleChange;
   if (rightShoulderAngle > 70 || rightShoulderAngle < 30) {
@@ -278,6 +297,7 @@ void changeRightShoulderAngle() {
   }
 }
 
+// The the angle between abdomen and left shoulder
 void changeLeftShoulderAngle() {
   leftShoulderAngle += leftShoulderAngleChange;
   if (leftShoulderAngle > 70 || leftShoulderAngle < 30) {
@@ -286,6 +306,7 @@ void changeLeftShoulderAngle() {
   }
 }
 
+// Change the right elbow angle
 void changeRightElbowAngle() {
   rightElbowAngle += rightElbowAngleChange;
   if (rightElbowAngle > 60 || rightElbowAngle < 0) {
@@ -294,6 +315,7 @@ void changeRightElbowAngle() {
   }
 }
 
+// Change the left elbow angle
 void changeLeftElbowAngle() {
   leftElbowAngle += leftElbowAngleChange;
   if (leftElbowAngle > 60 || leftElbowAngle < 0) {
@@ -302,11 +324,13 @@ void changeLeftElbowAngle() {
   }
 }
 
+// Draw the sky background
 void drawSky() {
   fill(#499BC4);
   rect(0, 0, WIDTH, HEIGHT);
 }
 
+// Draw the grass in the background
 void drawGrass() {
   pushMatrix();
   translate(0, HEIGHT - 120);
@@ -317,6 +341,7 @@ void drawGrass() {
   noStroke();
 }
 
+// draw the dirt in the background
 void drawDirt() {
   translate(0, 15);
   fill(#C9AC75);
@@ -324,6 +349,7 @@ void drawDirt() {
   popMatrix();
 }
 
+// Draw the green pipe
 void drawPipe() {
   drawPlant();
   int PIPEHEIGHT = 150;
@@ -341,6 +367,7 @@ void drawPipe() {
   popMatrix();
 }
 
+// Draw thje pirahna plant in the pipe
 void drawPlant() {
 
   changePlantHeight();
@@ -410,6 +437,7 @@ void drawPlant() {
   popMatrix();
 }
 
+// Cycle the height of the pirahna plant
 void changePlantHeight() {
   plantY += plantDeltaY;
   if (plantY < 305 || plantY > 460) {
@@ -418,6 +446,7 @@ void changePlantHeight() {
   }
 }
 
+// Animate the plant opening and closing
 void animatePlant() {
   plantMouthAngle += plantMouthAngleChange;
   if (plantMouthAngle > 45 || plantMouthAngle < 25) {
@@ -426,6 +455,7 @@ void animatePlant() {
   }
 }
 
+// Draw the coins in the background
 void drawCoins() {
   fill(#F2EF13);
   stroke(#C7C40E);
@@ -440,6 +470,7 @@ void drawCoins() {
   rect(498, 115, coinWidth/10, 70, 3, 3, 3, 3);
 }
 
+// Animate the coins in a rotating motion
 void rotateCoins() {
   coinWidth += coinWidthChange;
   if (coinWidth > 100 || coinWidth < 0) {
@@ -448,6 +479,7 @@ void rotateCoins() {
   }
 }
 
+// Draw the question block in the background
 void drawQuestionBlock() {
   pushMatrix();
   translate(1030, 80);
@@ -466,6 +498,7 @@ void drawQuestionBlock() {
   popMatrix();
 }
 
+// Draw all the mountains in the background
 void drawMountains() {
   pushMatrix();
   translate(140, 600);
@@ -477,6 +510,7 @@ void drawMountains() {
   popMatrix();
 }
 
+// Draw a single mounstain
 void drawMountain() {
   fill(#149140);
   ellipse(0, -60, 100, 120);
@@ -485,6 +519,7 @@ void drawMountain() {
   rect(-40, 0, 80, -20);
 }
 
+// Draw all the clouds in the background
 void drawClouds() {
   pushMatrix();
   translate(180, 80);
@@ -498,6 +533,7 @@ void drawClouds() {
   popMatrix();
 }
 
+// Draw a single cloud
 void drawCloud() {
   fill(255);
   ellipse(0, 0, 80, 80);
@@ -506,6 +542,7 @@ void drawCloud() {
   rect(-50, 20, 100, 20);
 }
 
+// Draw all the boxes in the background
 void drawBoxes() {
   pushMatrix();
   translate(240, 370);
@@ -526,6 +563,7 @@ void drawBoxes() {
   popMatrix();
 }
 
+// Move Luigi in the direction of the mouse cursor
 void moveLeftRight() {
   if (mouseX > XPos) {
     if (!(mouseX - XPos < 10 || XPos >= 1180)) {
@@ -539,6 +577,7 @@ void moveLeftRight() {
 }
 
 
+// Generate a gradient for coloring
 
 void setGradient(int x, int y, float w, float h, color c1, color c2, int axis ) {
 
